@@ -1,5 +1,6 @@
 package com.example.fmania
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -36,11 +37,22 @@ class userLoginActivity : AppCompatActivity() {
         val email=u_email.text.toString().trim()
         val pass=u_pass.text.toString().trim()
 
+        if (email.isEmpty()) {
+            u_email.error = "Please enter your email"
+            return
+        }
+        if (pass.isEmpty()) {
+            u_pass.error = "Please enter your pass"
+            return
+        }
+
         database = FirebaseDatabase.getInstance().reference
         val id=database.push().key
         val user=Data(id.toString(),email,pass)
         database.child("users").child(id.toString()).setValue(user).addOnCompleteListener{
             Toast.makeText(applicationContext,"Completed",Toast.LENGTH_LONG).show()
+            val intent = Intent(this@userLoginActivity, getDataActivity::class.java)
+            startActivity(intent)
         }
 
 

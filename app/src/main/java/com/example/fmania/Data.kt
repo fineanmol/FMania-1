@@ -1,5 +1,5 @@
 package com.example.fmania
 
-class Data(var id:String?="",
-            var email_a: String? = "",
-            var pass: String? = "")
+class Data(val id: String, val email: String, val pass: String) {
+    constructor() : this("", "", "") {}
+}
