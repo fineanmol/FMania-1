@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "836626722826",
+    "firebase_url": "https://fmania-64bca.firebaseio.com",
+    "project_id": "fmania-64bca",
+    "storage_bucket": "fmania-64bca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836626722826:android:91a1d3533e8e3a36",
+        "android_client_info": {
+          "package_name": "com.example.fmania"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "836626722826-0psu61c3h6qc5jof778ophq8oahaqmis.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fmania",
+            "certificate_hash": "a880e284702163e327bc3c4a0406b47966f538d2"
+          }
+        },
+        {
+          "client_id": "836626722826-jb7of780k0315l2aci5v81nf8c2hnd8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoLTgQeE9dE4I3_rbAPv6UP_pE-5kC9yM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "836626722826-jb7of780k0315l2aci5v81nf8c2hnd8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
