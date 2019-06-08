@@ -10,7 +10,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_user_register.*
-import kotlinx.android.synthetic.main.users.*
 
 
 class userRegisterActivity : AppCompatActivity() {
@@ -28,6 +27,9 @@ class userRegisterActivity : AppCompatActivity() {
         u_register.setOnClickListener {
             val email = u_r_email.text.toString().trim()
             val password = u_r_pass.text.toString().trim()
+            val name= numberupdate.text.toString().trim()
+            val number =mobile.text.toString().trim()
+            val dob = dob.text.toString().trim()
 
             if (email.isEmpty()) {
                 u_r_email.error = "Email Required"
@@ -46,8 +48,8 @@ class userRegisterActivity : AppCompatActivity() {
                 u_r_pass.requestFocus()
                 return@setOnClickListener
             }
-            addUser(email,password)
-            registerUser(email, password)
+
+            registerUser(email, password,name,number,dob)
 
         }
 
@@ -56,12 +58,13 @@ class userRegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun registerUser(email: String, password: String) {
+    private fun registerUser(email: String, password: String,name: String,number: String,dob: String) {
         progressbar.visibility = View.VISIBLE
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 progressbar.visibility = View.GONE
                 if (task.isSuccessful) {
+                    addUser(email,password,name,number,dob)
                     login()
                 } else {
                     task.exception?.message?.let {
@@ -78,14 +81,15 @@ class userRegisterActivity : AppCompatActivity() {
             login()
         }
     }
-    private fun addUser(email: String,password: String){
-        val Personname= email.trim()
+    private fun addUser(email: String,password: String,name:String,number:String,dob:String){
+
 
 
 
         ref = FirebaseDatabase.getInstance().getReference("users")
         val userId= (ref.push().key).toString()
-        val addUser = Data(userId,email,password)
+        val addUser = Data(userId,email,password,name,number,dob)
+
 
         ref.child("users").child(userId).setValue(addUser)
         Toast.makeText(this,"Registration Successful",Toast.LENGTH_LONG).show()

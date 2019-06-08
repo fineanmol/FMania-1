@@ -5,63 +5,85 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".userRegisterActivity">
+        tools:context=".userRegisterActivity"
+android:background="@drawable/gym">
 
     <ProgressBar
             android:id="@+id/progressbar"
             android:visibility="gone"
             android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:ignore="MissingConstraints"/>
+            app:layout_editor_absoluteX="180dp"
+            app:layout_editor_absoluteY="380dp"
+            android:layout_width="45dp"
+            android:layout_height="34dp" tools:ignore="MissingConstraints" tools:layout_editor_absoluteY="380dp"
+            tools:layout_editor_absoluteX="180dp"/>
+
     <ImageView
-            android:layout_width="414dp"
-            android:layout_height="727dp" app:srcCompat="@drawable/gym"
-            android:id="@+id/imageView5"
-            android:scaleType="centerCrop"
-            tools:layout_editor_absoluteY="6dp" tools:ignore="MissingConstraints"/>
-    <TextView
-            android:text=" FMania"
-            android:layout_width="341dp"
-            android:layout_height="wrap_content"
+            android:src="@drawable/userlogo"
+            android:layout_width="match_parent"
+            android:layout_height="174dp"
+            android:layout_marginTop="12dp"
             android:id="@+id/textView5" android:textStyle="bold"
-            android:textColor="#BEBEBE" android:textSize="80sp" app:fontFamily="serif"
+            android:textColor="#BEBEBE"
             android:textAllCaps="false"
-            tools:layout_editor_absoluteY="54dp" tools:layout_editor_absoluteX="46dp"
-            tools:ignore="MissingConstraints"/>
+            tools:layout_editor_absoluteY="0dp"
+            tools:ignore="MissingConstraints" app:layout_constraintStart_toStartOf="parent"
+    />
     <TextView
             android:id="@+id/register_title2"
-            android:layout_width="392dp"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Account Registration"
+            android:layout_width="400dp"
+            android:layout_height="34dp"
+            android:gravity="center"
+            android:text="        Account Registration"
             android:textColor="#fff"
-            android:textSize="26sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintHorizontal_bias="0.485" app:layout_constraintEnd_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="216dp"/>
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="172dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"/>
     <LinearLayout
-            android:layout_width="419dp"
-            android:layout_height="wrap_content"
+            android:layout_width="415dp"
+            android:layout_height="726dp"
             android:layout_below="@+id/register_title"
             android:background="#4AFFFFFF"
             android:elevation="4dp"
             android:orientation="vertical"
-            android:padding="50dp" tools:layout_editor_absoluteX="-5dp"
-            android:layout_marginTop="44dp" app:layout_constraintTop_toBottomOf="@+id/register_title2"
+            android:padding="50dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-            app:layout_constraintVertical_bias="1.0" tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="287dp"
+                android:layout_height="504dp"
+                android:layout_marginLeft="25dp"
                 android:orientation="vertical"
+                android:layout_marginTop="160dp"
                 android:paddingTop="30dp">
 
+            <TextView
+                    android:labelFor="@id/numberupdate"
+                    android:text="Name"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textColor="#FFFFFF"/>
 
+            <EditText
+                    android:id="@+id/numberupdate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_email"
+                    android:drawablePadding="10dp"
+                    android:singleLine="true"
+                    android:layout_marginBottom="10dp"
+                    android:hint="John Phill"
+                    android:inputType="textPersonName" android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"/>
             <TextView
                     android:labelFor="@id/u_r_email"
-                    android:text="email"
+                    android:text="Email"
                     android:fontFamily="sans-serif-light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:textColor="#FFFFFF"/>
@@ -77,6 +99,38 @@
                     android:hint="john@gmail.com"
                     android:inputType="textEmailAddress" android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"/>
+            <TextView
+                    android:labelFor="@id/mobile"
+                    android:text="Mobile Number"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textColor="#FFFFFF"/>
+            <EditText
+                    android:drawablePadding="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:id="@+id/mobile"
+                    android:drawableLeft="@drawable/ic_lock"
+                    android:hint="9876543210"
+                    android:inputType="number" android:textColor="#FFFFFF" android:textColorHint="#FFFFFF"/>
+
+            <TextView
+                    android:labelFor="@id/dob"
+                    android:text="DOB"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textColor="#FFFFFF"/>
+
+            <EditText
+                    android:drawablePadding="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:id="@+id/dob"
+                    android:drawableLeft="@drawable/ic_lock"
+                    android:hint="20/04/1997"
+                    android:inputType="datetime" android:textColor="#FFFFFF" android:textColorHint="#FFFFFF"/>
 
             <TextView
                     android:labelFor="@id/u_r_pass"
@@ -94,7 +148,6 @@
                     android:drawableLeft="@drawable/ic_lock"
                     android:hint="Password"
                     android:inputType="textPassword" android:textColor="#FFFFFF" android:textColorHint="#FFFFFF"/>
-
             <Button
                     android:id="@+id/u_register"
                     android:layout_width="fill_parent"
@@ -108,12 +161,12 @@
 
             <TextView
                     android:id="@+id/u_r_login"
-                    android:layout_gravity="center_horizontal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textAlignment="center"
-                    android:text="Already have an account.\nLogIn Here"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:textColor="#FFFFFF"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:text="Already a member? Login"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:textSize="16dip"/>
         </LinearLayout>
 
     </LinearLayout>

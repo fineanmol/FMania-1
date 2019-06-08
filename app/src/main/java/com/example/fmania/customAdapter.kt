@@ -51,6 +51,9 @@ class customAdapter(val mCtx: Context, val layoutId: Int, val employeeList: List
 
         val email = view.findViewById<EditText>(R.id.editemail)
         val pass = view.findViewById<EditText>(R.id.editpass)
+        val name = view.findViewById<EditText>(R.id.nameupdate)
+        val number = view.findViewById<EditText>(R.id.numberupdate)
+        val dob = view.findViewById<EditText>(R.id.numberupdate)
 
         email.setText(employee.email)
         pass.setText(employee.pass)
@@ -64,6 +67,9 @@ class customAdapter(val mCtx: Context, val layoutId: Int, val employeeList: List
 
                 val email1 = email.text.toString().trim()
                 val pass2 = pass.text.toString().trim()
+                val name= name.text.toString().trim()
+                val number =number.text.toString().trim()
+                val dob = dob.text.toString().trim()
 
                 if (email1.isEmpty()) {
                     email.error = "Please enter your email"
@@ -74,7 +80,7 @@ class customAdapter(val mCtx: Context, val layoutId: Int, val employeeList: List
                     return
                 }
 
-                val employee = Data(employee.id, email1, pass2)
+                val employee = Data(employee.id, email1, pass2,name,number,dob)
                 myDatabase.child(employee.id).setValue(employee)
                 Toast.makeText(mCtx, "Updated :) ", Toast.LENGTH_LONG).show()
 
