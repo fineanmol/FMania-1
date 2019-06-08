@@ -5,21 +5,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_user_register.*
+import kotlinx.android.synthetic.main.users.*
 
 
 class userRegisterActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
-
+    lateinit var ref:DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_register)
 
         mAuth = FirebaseAuth.getInstance()
-
+        ref = FirebaseDatabase.getInstance().getReference("users")
 
         u_register.setOnClickListener {
             val email = u_r_email.text.toString().trim()
@@ -42,7 +46,7 @@ class userRegisterActivity : AppCompatActivity() {
                 u_r_pass.requestFocus()
                 return@setOnClickListener
             }
-
+            addUser(email,password)
             registerUser(email, password)
 
         }
@@ -73,5 +77,20 @@ class userRegisterActivity : AppCompatActivity() {
         mAuth.currentUser?.let {
             login()
         }
+    }
+    private fun addUser(email: String,password: String){
+        val Personname= email.trim()
+
+
+
+        ref = FirebaseDatabase.getInstance().getReference("users")
+        val userId= (ref.push().key).toString()
+        val addUser = Data(userId,email,password)
+
+        ref.child("users").child(userId).setValue(addUser)
+        Toast.makeText(this,"Registration Successful",Toast.LENGTH_LONG).show()
+
+
+
     }
 }
