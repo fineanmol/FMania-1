@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.activity_user_login.*
 class userLoginActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var database: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,10 +62,13 @@ class userLoginActivity : AppCompatActivity() {
     private fun loginUser(email: String, password: String) {
         progressbar.visibility = View.VISIBLE
         mAuth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
+            .addOnCompleteListener(this) {
+
+                    task ->
                 progressbar.visibility = View.GONE
                 if (task.isSuccessful) {
                     login()
+
                 } else {
                     task.exception?.message?.let {
                         toast(it)
