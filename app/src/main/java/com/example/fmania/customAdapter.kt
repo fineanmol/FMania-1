@@ -20,8 +20,11 @@ class customAdapter(val mCtx: Context, val layoutId: Int, val employeeList: List
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
         val view: View = layoutInflater.inflate(layoutId, null)
 
-        val email = view.findViewById<TextView>(R.id.email)
-        val pass = view.findViewById<TextView>(R.id.pass)
+        val email = view.findViewById<TextView>(R.id.userEmail)
+        val pass = view.findViewById<TextView>(R.id.userPass)
+        val name = view.findViewById<TextView>(R.id.userName)
+        val Id = view.findViewById<TextView>(R.id.userId)
+        val dob = view.findViewById<TextView>(R.id.userDOB)
 
         val updateBtn = view.findViewById<TextView>(R.id.update)
         val deleteBtn = view.findViewById<TextView>(R.id.delete)
@@ -30,6 +33,9 @@ class customAdapter(val mCtx: Context, val layoutId: Int, val employeeList: List
 
         email.text = employee.email
         pass.text = employee.pass
+        name.text = employee.name
+        Id.text = employee.id
+        dob.text = employee.dob
 
         updateBtn.setOnClickListener {
             updateInfo(employee)
@@ -57,6 +63,8 @@ class customAdapter(val mCtx: Context, val layoutId: Int, val employeeList: List
 
         email.setText(employee.email)
         pass.setText(employee.pass)
+        name.setText(employee.name)
+        dob.setText(employee.dob)
 
         builder.setView(view)
 
