@@ -84,9 +84,7 @@ class userRegisterActivity : AppCompatActivity() {
     private fun addUser(email: String,password: String,name:String,number:String,dob:String){
 
 
-
-
-        ref = FirebaseDatabase.getInstance().getReference("users")
+        ref = FirebaseDatabase.getInstance().reference
         val userId= (ref.push().key).toString()
         val addUser = Data(userId,email,password,name,number,dob)
 
