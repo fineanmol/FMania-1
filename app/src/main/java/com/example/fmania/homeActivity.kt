@@ -39,7 +39,6 @@ class homeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         //setSupportActionBar(toolbar)
-        //ref = FirebaseDatabase.getInstance().reference
         employeeList = mutableListOf()
         listview = findViewById(R.id.userData)
         currentUser?.let { user ->
