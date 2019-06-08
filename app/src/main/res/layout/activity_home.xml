@@ -13,11 +13,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView6"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView8"/>
         <fragment
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" app:navGraph="@navigation/nav_graph" app:defaultNavHost="true"
+                android:layout_height="63dp" app:navGraph="@navigation/nav_graph" app:defaultNavHost="true"
                 android:id="@+id/fragment"/>
+        <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/userData"/>
 
 
     </LinearLayout>
